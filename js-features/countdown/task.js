@@ -6,7 +6,8 @@ const changeTime = function () {
     }
     else {
         alert("Вы победили в конкурсе");
+        clearTimeout(timerId);
     }
 }
 
-setInterval(changeTime, 1000);
+let timerId = setInterval(changeTime, 1000);

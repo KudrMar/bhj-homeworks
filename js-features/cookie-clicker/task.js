@@ -13,5 +13,11 @@ elemenCookie.onclick = () => {
         elemenCookie.width = elemenCookie.width / 1.1;
         elemenCookie.height = elemenCookie.height / 1.1;
     }
+
+
     elemenClicker__counter.textContent = Number(elemenClicker__counter.textContent) + 1;
 }
+
+// elemenCookie.onclick = () => {
+//     elemenCookie.width = ++elemenClicker__counter.textContent % 2 ? 250 : 200;
+//     }

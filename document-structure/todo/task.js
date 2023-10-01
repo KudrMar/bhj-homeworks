@@ -1,41 +1,39 @@
-addEventListener("keydown", (event)=>{
-    if (event.key !="Enter") {return};
-    moveRect(event)
-});
-
-const tasks__form = document.getElementById("tasks__form");
-const tasks__list = document.getElementById("tasks__list");
+const tasksForm = document.getElementById("tasks__form");
+const tasksList = document.getElementById("tasks__list");
 
 
 function moveRect(event) {
     event.preventDefault();
     const element = document.getElementById('task__input');
-    if (element.value.trim() == '') {return};
-
-    taskElem = document.createElement('div');
-    taskElem.className = 'task';
-    let tasks__list_FirstChild = tasks__list.firstElementChild;
-    if (tasks__list_FirstChild) {
-        tasks__list.insertBefore(taskElem , tasks__list_FirstChild)
-    }
-    else {
-        tasks__list.appendChild(taskElem);
+    if (element.value.trim() == '') 
+    {
+        return
     };
 
-    task__titleElem = document.createElement('div');
-    task__titleElem.className = 'task__title';
-    task__titleElem.innerHTML = element.value;
-    taskElem.appendChild(task__titleElem);
+    let taskElem = document.createElement('div');
+    taskElem.className = 'task';
+    let tasksListFirstChild = tasksList.firstElementChild;
+    if (tasksListFirstChild) {
+        tasksList.insertBefore(taskElem , tasksListFirstChild)
+    }
+    else {
+        tasksList.appendChild(taskElem);
+    };
 
-    task__removeElem = document.createElement('a');
-    task__removeElem.className = 'task__remove';
-    task__removeElem.innerHTML = "&times";
-    task__removeElem.setAttribute("href", "#");
-    taskElem.appendChild(task__removeElem);
+    let taskTitleElem = document.createElement('div');
+    taskTitleElem.className = 'task__title';
+    taskTitleElem.innerHTML = element.value;
+    taskElem.appendChild(taskTitleElem);
 
-    task__removeElem.addEventListener("click", removeTask)
+    let taskRemoveElem = document.createElement('a');
+    taskRemoveElem.className = 'task__remove';
+    taskRemoveElem.innerHTML = "&times";
+    taskRemoveElem.setAttribute("href", "#");
+    taskElem.appendChild(taskRemoveElem);
 
-    tasks__form.reset();
+    taskRemoveElem.addEventListener("click", removeTask)
+
+    tasksForm.reset();
 }
 
 const button = document.getElementById('tasks__add');

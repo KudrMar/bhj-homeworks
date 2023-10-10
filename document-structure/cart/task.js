@@ -7,7 +7,7 @@ for (let i = 0; i < productQuantityControlDec.length; i++) {
 function decQuantity(event) {
     let element = event.currentTarget;
     let nextSibling = element.nextElementSibling;
-    nextSibling.textContent = (nextSibling.textContent.trim() < 1) ? 0 : nextSibling.textContent - 1;
+    nextSibling.textContent = (nextSibling.textContent.trim() < 2) ? 0 : nextSibling.textContent - 1;
 }
 
 const productQuantityControlInc = document.getElementsByClassName("product__quantity-control_inc");

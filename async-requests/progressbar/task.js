@@ -6,7 +6,7 @@ function getProgress() {
     form.append('file', fileEl.files[0], fileEl.files[0].name);
 
     let xhr = new XMLHttpRequest();
-    xhr.responseType = "multipart/form-data";
+    xhr.responseType = "DOMString";
     xhr.open('POST', 'https://students.netoservices.ru/nestjs-backend/upload');
     
     xhr.upload.onprogress = function(event) {

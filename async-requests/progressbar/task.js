@@ -3,14 +3,11 @@ function getProgress() {
     const form = new FormData();
 
     let fileEl = document.getElementById("file");
-    fileEl.setAttribute("referrerpolicy", "no-referrer-when-downgrade");
-    form.append('file', fileEl.files[0]);
-    var xhr = new XMLHttpRequest();
+    form.append('file', fileEl.files[0], fileEl.files[0].name);
 
-    xhr.open('POST', 'https://students.netoservices.ru/nestjs-backend/upload', true);
-    xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-    xhr.setRequestHeader("Accept", "multipart/form-data");
-    xhr.setRequestHeader("Access-Control-Allow-Origin", "netology.ru");
+    let xhr = new XMLHttpRequest();
+    xhr.responseType = "multipart/form-data";
+    xhr.open('POST', 'https://students.netoservices.ru/nestjs-backend/upload');
     
     xhr.upload.onprogress = function(event) {
         const progress = document.getElementById( 'progress' );
@@ -25,7 +22,7 @@ function getProgress() {
  }
 
 
-document.addEventListener("submit", (event) => {
+addEventListener("submit", (event) => {
     event.preventDefault();
     getProgress();
 });
